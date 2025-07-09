@@ -11,21 +11,43 @@ public class DetectorForMacs {
             String[] cmd = {
                 "osascript",
                 "-e",
-                "tell application \"System Events\" to get name of (processes where background only is false)"
+                "tell application \"Google Chrome\"",
+                "-e",
+                "set window_list to every window",
+                "-e",
+                "set tab_list to {}",
+                "-e",
+                "repeat with the_window in window_list",
+                "-e",
+                "repeat with the_tab in every tab of the_window",
+                "-e",
+                "set end of tab_list to title of the_tab & \" - \" & URL of the_tab",
+                "-e",
+                "end repeat",
+                "-e",
+                "end repeat",
+                "-e",
+                "return tab_list",
+                "-e",
+                "end tell"
             };
 
             Process process = Runtime.getRuntime().exec(cmd);
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
-            System.out.println("Open Applications:");
+            System.out.println("Open Tabs:");
 
             while ((line = reader.readLine()) != null){
-                for (String app: line.split(", ")){
-                    System.out.println("- " + app.trim());
-                }
+                // for (String app: line.split(", ")){
+                //     for (String program: app.split(", ")){
+                //         System.out.println("- " + program.trim());
+                //     }
+                //     System.out.println("- " + app.trim());
+                // }
+                System.out.println("- " + line.trim());
             }
             process.waitFor();
-            
+
         }catch (Exception e){
             e.printStackTrace();
         }
