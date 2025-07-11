@@ -16,7 +16,7 @@ public class DetectorForMacs {
                 "-e", "repeat with t in tabs of w",
                 "-e", "set the_url to URL of t",
                 "-e", "set the_title to name of t",
-                "-e", "if the_url contains \"google.com\" then",
+                "-e", "if the_url contains \".com\" then",
                 "-e", "copy the_title to end of tab_list",
                 "-e", "end if",
                 "-e", "end repeat",
@@ -31,13 +31,10 @@ public class DetectorForMacs {
             System.out.println("Open Tabs:");
 
             while ((line = reader.readLine()) != null){
-                // for (String app: line.split(", ")){
-                //     for (String program: app.split(", ")){
-                //         System.out.println("- " + program.trim());
-                //     }
-                //     System.out.println("- " + app.trim());
-                // }
-                System.out.println("- " + line.trim());
+                String[] websites = line.split(",\\s*");
+                for (String website: websites){
+                    System.out.println("- " + website.trim());
+                }
             }
             process.waitFor();
 
