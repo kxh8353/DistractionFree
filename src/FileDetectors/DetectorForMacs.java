@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 
 public class DetectorForMacs {
 
@@ -93,7 +94,8 @@ public class DetectorForMacs {
         }catch (Exception e){
             e.printStackTrace();
         }
-        System.out.print(WebsiteList);
+        ArrayList<String>uniqueWebsites = removeDuplicateTabs(WebsiteList);
+        System.out.print(uniqueWebsites);
     }
 
     private static String extractDomainForSafari(String url) {
@@ -128,14 +130,17 @@ public class DetectorForMacs {
                 return parts[len - 2] + "." + parts[len - 1];
             } else {
                 return host;
-            }
+            } 
         } catch (Exception e) {
             return "(invalid URL)";
         }
     }
 
+    public static ArrayList<String> removeDuplicateTabs(ArrayList<String> WebsiteList){
+        return new ArrayList<>(new LinkedHashSet<>(WebsiteList));
+    }
+
     public static void main(){
         DetectFilesOnMacs();
-        
     }
 }

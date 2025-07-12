@@ -22,5 +22,5 @@ public class DetectorForWindows {
 
     public static void main (String[] args){
         DetectFilesOnWindows();
-    }
+    } 
 }

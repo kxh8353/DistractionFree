@@ -7,7 +7,7 @@ public class App {
     public static void SelectOperatingSystem(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("what operating system do you use?");
-        String answer = scanner.nextLine();
+        String answer = scanner.nextLine(); 
         if (answer.equals("Windows")|| answer.equals("windows")){
             DetectorForWindows.DetectFilesOnWindows();
         }else if (answer.equals("Macbook")|| answer.equals("macbook")){
@@ -15,7 +15,7 @@ public class App {
         }else{
             System.out.println("invalid request");
         }
-        scanner.close();
+        scanner.close(); 
     }
     
     public static void SelectWebsitesToBlock(){
