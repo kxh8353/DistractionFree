@@ -18,11 +18,11 @@ public class App {
         scanner.close();
     }
     
-    // public static void SelectWebsites(String[] args){
-    //     System.out.println("Select Website(s) to Block:");
-    // }
+    public static void SelectWebsitesToBlock(){
+        SelectOperatingSystem();
+    }
 
     public static void main(String[] args){
-        SelectOperatingSystem();
+        SelectWebsitesToBlock();
     }
 }
