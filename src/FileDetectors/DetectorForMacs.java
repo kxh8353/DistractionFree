@@ -10,7 +10,7 @@ public class DetectorForMacs {
 
     public static ArrayList<String> WebsiteList = new ArrayList<>();
     
-    public static void DetectFilesOnMacs(){
+    public static ArrayList<String> DetectFilesOnMacs(){
         try {
             String[] SafariCMD = {
                 "osascript",
@@ -42,7 +42,7 @@ public class DetectorForMacs {
                         String title = parts[0].trim();
                         String url = parts[1].trim();
                         String domain = extractDomainForSafari(url);
-                        System.out.println("- " + title + " | " + domain);
+                        // System.out.println("- " + title + " | " + domain);
                         WebsiteList.add(domain);
                     }
                 }
@@ -84,7 +84,7 @@ public class DetectorForMacs {
                          String title = parts[0].trim();
                          String url = parts[1].trim();
                          String domain = extractDomainForChrome(url);
-                         System.out.println("- " + title + " | " + domain);
+                        //  System.out.println("- " + title + " | " + domain);
                          WebsiteList.add(domain);
                       }
                 }
@@ -95,7 +95,8 @@ public class DetectorForMacs {
             e.printStackTrace();
         }
         ArrayList<String>uniqueWebsites = removeDuplicateTabs(WebsiteList);
-        System.out.print(uniqueWebsites);
+        return uniqueWebsites;
+        // System.out.print(uniqueWebsites);
     }
 
     private static String extractDomainForSafari(String url) {
