@@ -16,6 +16,7 @@ public class App {
             DetectorForWindows.DetectFilesOnWindows();
         }else if (answer.equals("Macbook")|| answer.equals("macbook")){
             uniqueSites = DetectorForMacs.DetectFilesOnMacs();
+            
             System.out.println(uniqueSites);
         }else{
             System.out.println("invalid request");
