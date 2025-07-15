@@ -32,17 +32,15 @@ public class DetectorForMacs {
             Process process = Runtime.getRuntime().exec(SafariCMD);
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
-            System.out.println("Open Tabs on Safari:");
+            // System.out.println("Open Tabs on Safari:");
 
             while ((line = reader.readLine()) != null){
                 String[] SafariTabs = line.split(",\\s*");
                 for (String SafariTab: SafariTabs){
                     String[] parts = SafariTab.split("\\s\\|\\s");
                     if (parts.length == 2){
-                        String title = parts[0].trim();
                         String url = parts[1].trim();
                         String domain = extractDomainForSafari(url);
-                        // System.out.println("- " + title + " | " + domain);
                         WebsiteList.add(domain);
                     }
                 }
@@ -74,17 +72,15 @@ public class DetectorForMacs {
             Process process = Runtime.getRuntime().exec(ChromeCMD);
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
-            System.out.println("Open Tabs on Chrome:");
+            // System.out.println("Open Tabs on Chrome:");
 
             while ((line = reader.readLine()) != null){
                 String[] ChromeTabs = line.split(",\\s*");
                 for (String ChromeTab: ChromeTabs){
                     String[] parts = ChromeTab.split("\\s\\|\\s");
                       if (parts.length == 2){
-                         String title = parts[0].trim();
                          String url = parts[1].trim();
                          String domain = extractDomainForChrome(url);
-                        //  System.out.println("- " + title + " | " + domain);
                          WebsiteList.add(domain);
                       }
                 }
@@ -96,7 +92,6 @@ public class DetectorForMacs {
         }
         ArrayList<String>uniqueWebsites = removeDuplicateTabs(WebsiteList);
         return uniqueWebsites;
-        // System.out.print(uniqueWebsites);
     }
 
     private static String extractDomainForSafari(String url) {
