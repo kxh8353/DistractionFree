@@ -1,4 +1,4 @@
-package WebsiteDetectors;
+package WebsiteDetectorForMac;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
