@@ -1,4 +1,4 @@
-package FileDetectors;
+package WebsiteDetectors;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,7 +10,7 @@ public class DetectorForMacs {
 
     public static ArrayList<String> WebsiteList = new ArrayList<>();
     
-    public static ArrayList<String> DetectFilesOnMacs(){
+    public static ArrayList<String> DetectFilesOnMacs(){ 
         try {
             String[] SafariCMD = {
                 "osascript",

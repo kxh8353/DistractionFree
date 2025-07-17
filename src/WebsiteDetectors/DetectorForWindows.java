@@ -1,4 +1,4 @@
-package FileDetectors;
+package WebsiteDetectors;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
