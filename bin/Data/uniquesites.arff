@@ -1,0 +1,13 @@
+@relation website_classification
+
+@attribute hasEdu {0,1}
+@attribute hasGov {0,1}
+@attribute class {Academic}
+
+@data
+0,0,Academic
+0,0,Academic
+0,0,Academic
+0,0,Academic
+0,0,Academic
+0,0,Academic
